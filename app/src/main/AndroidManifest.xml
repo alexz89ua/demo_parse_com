@@ -19,6 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.stfalcon.demoparse.Screen2"
+            android:label="@string/title_activity_screen2" >
+        </activity>
+        <activity
+            android:name="com.stfalcon.demoparse.Screen3"
+            android:label="@string/title_activity_screen3" >
+        </activity>
     </application>
 
 </manifest>
