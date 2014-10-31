@@ -5,6 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class MainActivity extends Activity {
 
@@ -12,6 +18,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Parse.initialize(this, "y2cC0qr4NB4lyhXTNH6rAOfjXdSDTcRlVDn9CBWX", "cwIFp05Wn2hhtNwE4KdNudjZvXVzHZBLabRephHE");
+        ParseAnalytics.trackAppOpened(getIntent());
+
+        Map<String, String> dimensions = new HashMap<String, String>();
+        // What type of news is this?
+        dimensions.put("category", "politics");
+        // Is it a weekday or the weekend?
+        dimensions.put("dayType", "weekday");
+        // Send the dimensions to Parse along with the 'read' event
+
+        ParseAnalytics.trackEvent("read", dimensions);
     }
 
 
